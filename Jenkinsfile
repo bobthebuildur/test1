@@ -1,18 +1,13 @@
-    pipeline {
+pipeline {
     agent any
-   
+    tools {
+        gradle "GRADLE_LATEST"
+    }
     stages {
-        stage('Checkout') {
+        stage('Gradle') {
             steps {
-                    echo "stage 1"
+                sh 'gradle --version'
             }
         }
-        
-        stage ("Build") {
-            steps {
-                echo "stage 2"
-            }
-            
-        }   
     }
 }
